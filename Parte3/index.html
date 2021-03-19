@@ -7,15 +7,19 @@
 
 <script>
 
-let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogelio','Bertha'];
-
+let nombres = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogelio','Bertha'];
+nombres.lenght = 9;
 
 /*
 ### F1 Crea una funcion llamada mayusculas que reciba como parámetro un arreglo y convierta todos los nombres a mayusula y los escriba en la consola
 */
 
 // CREA TU FUNCION mayusculas aqui:
-
+function mayusculas(arr) {
+    for (var i = 0; i < arr.length; i++){
+        console.log(arr[i].toUpperCase());
+    }
+}
 
 
 /*
@@ -23,14 +27,27 @@ let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogeli
 */
 
 // CREA TU FUNCION numVocales aqui:
-
+function numVocales(str) {
+    let count = 0;
+    for (var i = 0; i < str.length; i++){
+        let ch = str[i].toLowerCase();
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
+            count += 1;
+        }
+    }
+    console.log(`${str} tiene: [${count}] vocales`);
+}
 
 /*
 ### F3 Crea una funcion llamada numVocalesArr que reciba un arreglo y mande llamar a la funcion numVocales para que escriba la longitud de cada elemento del arreglo." 
 */
 
 // CREA TU FUNCION numVocalesArr aqui:
-
+function numVocalesArr(arr) {
+    for (var i = 0; i < arr.lenght; i++){
+        numVocales(arr[i]);
+    }
+}
 
 
 
@@ -43,13 +60,27 @@ A) Define un objeto tipo "Perro" que reciba 3 parametros
 1) Nombre
 2) Color
 3) Raza
-
-
+*/
+function Perro(Nombre, Color, Raza){
+    this.Nombre = Nombre;
+    this.Color = Color;
+    this.Raza = Raza;
+    this.printInfo = function(){
+        console.log("Nombre: " + Nombre + ", De color: " + Color + ", Raza: " + Raza);
+    }
+}
+/*
 B) Crea 3 objectos  con diferentes valores
+*/
+let firulais = new Perro("Firulais", "Negro y blanco", "Dalmata");
+let luna = new Perro("Luna", "Gris", "Colie");
+let chata = new Perro("Chata", "Cafe", "Shitzu");
 
+/*
 C) Con un console.log escribe el nombre del primer objeto, el color del segundo, y la raza del tercero. Lo puedes hacer en una sola línea o en 3 lineas aparte. 
-
-
+*/
+console.log(firulais.Nombre + "\n" + luna.Color + "\n" + chata.Raza);
+/*
 *****BONUS****
 
 Crea una método en la definición del objeto "Perro" llamado printInfo()  que escriba en consola todas las propiedades del objeto que lo invoca. 
@@ -65,6 +96,7 @@ Deberia escribir en consola
 
 */
 
+firulais.printInfo();
 
 
 /***
@@ -74,13 +106,13 @@ Deberia escribir en consola
  ***/
 
 // F1
-
+mayusculas(nombres);
 
 // F2
-
+numVocales(nombres[0]);
 
 // F3
-
+numVocalesArr(nombres);
 
 
 
